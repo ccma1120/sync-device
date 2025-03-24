@@ -24,7 +24,6 @@ jobs:
     
     - name: Run sync scripts
       run: |
-        python sync-iar.py
         python sync-segger.py
     
     - name: Commit changes

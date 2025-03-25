@@ -31,8 +31,17 @@ jobs:
           
           diff -u filtered_local.cpp filtered_reference.cpp >> part_cmp_isp.txt || true
 
-      - name: Upload comparison results
-        uses: actions/upload-artifact@v4
+      - name: Commit changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add .
+          git commit -m "Update device list" -a || exit 0
+          git push
+      
+      - name: Push changes
+        uses: ad-m/github-push-action@master
         with:
-          name: comparison-results
-          path: part_cmp_isp.txt
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+

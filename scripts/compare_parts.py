@@ -7,6 +7,8 @@ def extract_part_numbers(file_path):
             # Skip commented lines
             if '//not release' in line or '//unknown' in line or '//old chip' in line:
                 continue
+            # Remove everything after // before looking for part numbers
+            line = line.split('//')[0]
             # Look for part numbers in format like "M451HD2AE"
             matches = re.findall(r'[A-Z][0-9A-Z]{5,}(?=[\s,"])', line)
             part_numbers.update(matches)

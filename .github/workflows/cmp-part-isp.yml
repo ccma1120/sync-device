@@ -20,18 +20,13 @@ jobs:
         run: |
           wget https://raw.githubusercontent.com/OpenNuvoton/ISPTool/master/NuvoISP/DataBase/PartNumID.cpp -O reference_PartNumID.cpp
 
-      - name: Filter and compare files
-        run: |
-          # Filter out commented lines from both files
-          grep -v "//not release\|//unknown\|//old chip" PartNumID.cpp > filtered_local.cpp
-          grep -v "//not release\|//unknown\|//old chip" reference_PartNumID.cpp > filtered_reference.cpp
-          
-          # Compare files and write results
-          echo "Comparison Results between local PartNumID.cpp and ISPTool reference:" > part_cmp_isp.txt
-          echo "===============================================================" >> part_cmp_isp.txt
-          echo "" >> part_cmp_isp.txt
-          
-          diff -u filtered_local.cpp filtered_reference.cpp >> part_cmp_isp.txt || true
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Compare part numbers
+        run: python scripts/compare_parts.py
 
       - name: Commit changes
         run: |

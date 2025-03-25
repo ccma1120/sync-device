@@ -1,4 +1,4 @@
-name: Sync Device Lists
+name: Sync Segger Lists
 
 on:
   schedule:

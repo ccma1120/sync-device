@@ -1,0 +1,37 @@
+name: Compare Part Numbers with PinConfigure
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * MON'  # Run weekly on Monday
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          
+      - name: Run comparison
+        run: |
+          cd scripts
+          python compare-parts-pin.py
+          
+      - name: Create issue if differences found
+        if: success()
+        run: |
+          REPORT=$(cat scripts/pin-parts-report.json)
+          MISSING=$(echo "$REPORT" | jq -r '.missing | length')
+          EXTRA=$(echo "$REPORT" | jq -r '.extra | length')
+          
+          if [ "$MISSING" -gt 0 ] || [ "$EXTRA" -gt 0 ]; then
+            gh issue create \
+              --title "Part number differences found with PinConfigure" \
+              --body "Comparison report found differences:\n\n\`\`\`json\n$REPORT\n\`\`\`" \
+              --label "part-numbers"
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

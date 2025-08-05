@@ -111,8 +111,9 @@ static char THIS_FILE[]=__FILE__;
 	_E(MA35D1)                      \
                                     \
 	_E(KM1M7AB)                     \
-	_E(KM1M4B)                      \
 	_E(KM1M7C)                      \
+	_E(KM1M4B)                      \
+	_E(KM1M3E)                      \
 	_E(KM1M0D)                      \
 	_E(KM1M0G)
 
@@ -3048,6 +3049,10 @@ struct CPartNumID g_PartNumIDs_KM1Mx[] =
 	{"KM1M0GF12YUB", 0x08006011, PROJ_KM1M0G},
 	{"KM1M0GF13YUB", 0x08006012, PROJ_KM1M0G},
 	{"KM1M0GF14YUB", 0x08006013, PROJ_KM1M0G},
+
+	/* KM1M3E */
+	{"KM1M3EF14R", 0x08301000, PROJ_KM1M3E},
+	{"KM1M3EF15R", 0x08301001, PROJ_KM1M3E},
 };
 
 CPartNum::CPartNum()

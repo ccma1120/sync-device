@@ -88,7 +88,8 @@ static char THIS_FILE[]=__FILE__;
 	_E(M2L31_512K) /* "MAD025" */   \
 	_E(M2L31_256K) /* "MAD026" */   \
 	_E(M55M1)      /* "MAD000" */   \
-	_E(M2003)      /* "KAG062" */   \
+	_E(M2003C)     /* "KAG062" */   \
+	_E(M2003G)     /* "KAG073" */   \
 	_E(M2A23)      /* "FA8286" */   \
 	_E(M2U51G)     /* "KAG066" */   \
 	_E(M2U51C)     /* "KAG067" */   \
@@ -110,6 +111,7 @@ static char THIS_FILE[]=__FILE__;
                                     \
 	_E(MA35D1)                      \
                                     \
+	_E(KM1M2)      /* "KAG076" */   \
 	_E(KM1M7AB)                     \
 	_E(KM1M7C)                      \
 	_E(KM1M4B)                      \
@@ -2174,6 +2176,7 @@ struct CPartNumID g_PartNumIDs[] =
 	{"M5531H2LJAE", 0xA2000060, PROJ_M55M1},
 	{"M5531K2LJAE", 0xA2000040, PROJ_M55M1},
 	{"M5531R2LJAE", 0xA2000020, PROJ_M55M1},
+	{"M55S1K2LJAE", 0xA2000340, PROJ_M55M1}, //not release
 
 	/* M451 series */
 	{"M451VG6AE", 0x00845130, PROJ_M451HD},
@@ -2527,10 +2530,10 @@ struct CPartNumID g_PartNumIDs[] =
 	{"M2L31XD4AE", 0x01F310B4, PROJ_M2L31_256K},
 
 	/* M2003 */
-	{"M2003FC1AE", 0x01F03CB0, PROJ_M2003},
-	{"M2003XC1AE", 0x01F03C80, PROJ_M2003},
-	{"M2P481QC1AE", 0x01F03C9F, PROJ_M2003},
-	{"KN44490A", 0x01F03CFF, PROJ_M2003},
+	{"M2003FC1AE", 0x01F03CB0, PROJ_M2003C},
+	{"M2003XC1AE", 0x01F03C80, PROJ_M2003C},
+	{"M2P481QC1AE", 0x01F03C9F, PROJ_M2003C},
+	{"KN44490A", 0x01F03CFF, PROJ_M2003C},
 
 	/* M2U51 */
 	{"M2U54KG6AE", 0x03200140, PROJ_M2U51G},
@@ -2548,8 +2551,8 @@ struct CPartNumID g_PartNumIDs[] =
 	{"M2U51FC2AE", 0x032010B3, PROJ_M2U51C},
 
 	/* NTNJ */
-	{"CM2003CF2AE", 0x01F03CB1, PROJ_M2003},
-	{"CM2003CF3AE", 0x01F03C81, PROJ_M2003},
+	{"CM2003CF2AE", 0x01F03CB1, PROJ_M2003C},
+	{"CM2003CF3AE", 0x01F03C81, PROJ_M2003C},
 
 	{"CM2U54GS8AE", 0x06200140, PROJ_M2U51G},
 	{"CM2U54ES8AE", 0x06200141, PROJ_M2U51G},

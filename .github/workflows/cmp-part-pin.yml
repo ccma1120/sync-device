@@ -2,8 +2,7 @@ name: Compare Part Numbers with PinConfigure
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 0 * * MON'  # Run weekly on Monday
+
 
 jobs:
   compare:

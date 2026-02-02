@@ -1,8 +1,6 @@
 name: Sync IAR Devices
 
 on:
-  schedule:
-    - cron: '0 0 * * 3'  # Runs at 00:00 UTC every Monday
   workflow_dispatch:      # Allows manual trigger
 
 jobs:

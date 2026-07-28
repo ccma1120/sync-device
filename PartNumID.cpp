@@ -100,6 +100,8 @@ static char THIS_FILE[]=__FILE__;
 	_E(M3331G)     /* "MAG072" */   \
 	_E(M3351)      /* "MAG074" */   \
                                     \
+	_E(CM3031_E)   /* "MAGY01" */   \
+                                    \
 	_E(N76E885)    /* "FA8251" */   \
 	_E(N76E616)    /* "FA8261" */   \
 	_E(N76E003)    /* "FA8265" */   \
@@ -2637,6 +2639,11 @@ struct CPartNumID g_PartNumIDs[] =
 	{"CM3033GL3AE", 0x06300195, PROJ_M3331G},
 	{"CM3034GJ3AE", 0x063000E4, PROJ_M3331G},
 	{"CM3033GJ3AE", 0x063001E5, PROJ_M3331G},
+
+	{"CM3033EN8AE", 0x06304010, PROJ_CM3031_E},
+	{"CM3033EL8AE", 0x06304000, PROJ_CM3031_E},
+	{"CM3033EL3AE", 0x06304090, PROJ_CM3031_E},
+	{"CM3033EJ3AE", 0x063040C0, PROJ_CM3031_E},
 
 	{"CM2052EL8AE", 0x06204000, PROJ_M252_E},
 	{"CM2052EN8AE", 0x06204010, PROJ_M252_E},
